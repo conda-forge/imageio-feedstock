@@ -1,8 +1,8 @@
 # Info that changes with each new release
 # (get sha256 from https://pypi.org/project/imageio/#files)
 
-{% set version = "2.3.0" %}
-{% set sha256 = "c4fd5183c342d47fdc2e98552d14e3f24386021bbc3efedd1e3b579d7d249c07" %}
+{% set version = "2.4.0" %}
+{% set sha256 = "fed45addbbd95a22739a607a9cfbd0ebcf641d4f42edb877f76957df322b50f8" %}
 
 package:
   name: imageio
@@ -16,7 +16,7 @@ source:
 build:
   noarch: python
   script: python -m pip install --no-deps --ignore-installed .
-  number: 1
+  number: 0
 
 requirements:
   host:
