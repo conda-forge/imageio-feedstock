@@ -9,7 +9,7 @@ source:
   sha256: 42e65aadfc3d57a1043615c92bdf6319b67589e49a0aae2b985b82144aceacad
 
 build:
-  number: 0
+  number: 1
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv"
   entry_points:
     - imageio_download_bin = imageio.__main__:download_bin_main
