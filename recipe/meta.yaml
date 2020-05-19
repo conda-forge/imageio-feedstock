@@ -25,6 +25,8 @@ requirements:
     - python >=3
     - numpy
     - pillow
+    - freeimage
+    - tifffile
 
 test:
   imports:
