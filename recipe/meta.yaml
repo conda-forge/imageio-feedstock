@@ -37,6 +37,7 @@ test:
     - fsspec
     - requests
     - av
+    - imageio-ffmpeg
     #- opencv
   imports:
     - imageio
