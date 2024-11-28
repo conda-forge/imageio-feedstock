@@ -9,7 +9,7 @@ source:
   sha256: e4e1d231f47f9a9e16100b0f7ce1a86e8856fb4d1c0fa2c4365a316f1746be62
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
   entry_points:
@@ -34,7 +34,7 @@ test:
     - psutil
     - tifffile
     - gdal
-    - astropy
+    - astropy-base
     - freeimage
     - fsspec
     - requests
