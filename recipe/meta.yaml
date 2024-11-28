@@ -20,25 +20,25 @@ requirements:
   host:
     - pip
     - setuptools
-    - python >=3
+    - python {{ python_min }}
   run:
-    - python >=3
+    - python >={{ python_min }}
     - numpy
     - pillow >=8.3.2
 
 test:
   requires:
+    - python {{ python_min }}
     - git
     - pytest
     - psutil
-    # test suite fails with older version on conda-forge
-    - tifffile >=2020.7.4
+    - tifffile
     - gdal
     - astropy
     - freeimage
     - fsspec
     - requests
-    - av =9.2
+    - av
     #- opencv
     - imageio-ffmpeg
   imports:
