@@ -9,7 +9,7 @@ source:
   sha256: 1c8f294db862c256e9562354d65aa54725b8dafed7f10f02bb3ec20ec1678850
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
   entry_points:
@@ -34,7 +34,7 @@ test:
     # test suite fails with older version on conda-forge
     - tifffile >=2020.7.4
     - gdal
-    - astropy
+    - astropy-base
     - freeimage
     - fsspec
     - requests
