@@ -58,6 +58,8 @@ tests:
         - requests
         - av
         - imageio-ffmpeg
+        # to load via libGL.so symlink
+        - libgl-devel
     script:
       - imageio_download_bin -h
       - imageio_remove_bin -h
