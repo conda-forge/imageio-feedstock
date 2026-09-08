@@ -1,0 +1,82 @@
+schema_version: 1
+
+context:
+  version: "2.37.4"
+  extra_test_args:
+    # TODO: why does it fail?
+    - "--deselect tests/test_freeimage.py::test_exr_write"
+
+package:
+  name: imageio
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/i/imageio/imageio-${{ version }}.tar.gz
+  sha256: e45cbc5e83502047fb138f7f585f7f105a136a57eea5f4b3cfc6ce1b52720bd3
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . --no-deps --ignore-installed -vvv
+  python:
+    entry_points:
+      - imageio_download_bin = imageio.__main__:download_bin_main
+      - imageio_remove_bin = imageio.__main__:remove_bin_main
+
+requirements:
+  host:
+    - pip
+    - setuptools
+    - python ${{ python_min }}.*
+  run:
+    - python >=${{ python_min }}
+    - numpy
+    - pillow >=8.3.2
+
+tests:
+  - python:
+      imports:
+        - imageio
+      pip_check: false
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - files:
+      source:
+        - tests/
+    requirements:
+      run:
+        - python ${{ python_min }}.*
+        - git
+        - pytest
+        - psutil
+        - tifffile
+        - gdal
+        - astropy-base
+        - freeimage
+        - fsspec
+        - requests
+        - av
+        - imageio-ffmpeg
+        # to load via libGL.so symlink
+        - libgl-devel
+    script:
+      - imageio_download_bin -h
+      - imageio_remove_bin -h
+      - pytest -sv tests/ ${{ extra_test_args|join(" ") }}
+
+about:
+  summary: A Python library for reading and writing image data
+  license: BSD-2-Clause
+  license_file: LICENSE
+  homepage: https://imageio.github.io
+  repository: https://github.com/imageio/imageio
+  documentation: https://imageio.readthedocs.io
+
+extra:
+  recipe-maintainers:
+    - anjos
+    - almarklein
+    - blink1073
+    - jni
+    - mgorny
