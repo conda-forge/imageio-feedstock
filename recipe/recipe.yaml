@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "2.37.4"
+  version: "2.38.0"
   extra_test_args:
     # TODO: why does it fail?
     - "--deselect tests/test_freeimage.py::test_exr_write"
@@ -12,7 +12,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/i/imageio/imageio-${{ version }}.tar.gz
-  sha256: e45cbc5e83502047fb138f7f585f7f105a136a57eea5f4b3cfc6ce1b52720bd3
+  sha256: fe1d406862f6bc2930e8ec662d7bc40d4370cb76e3390dcd33819560d2708531
 
 build:
   number: 0
